@@ -21,3 +21,23 @@ A memória egy adott része, amely egy névvel van azonosítva.
 
  - tömbök
  - objektumok stb.
+
+**Példák**
+
+```c#
+            //Szöveg
+            string szoveg = "Valami szöveg";
+            //karakter
+            char karakter = 'g';
+            //egész számok
+            int szam = 345;
+            short masikSzam = 235;
+            byte bajt = 221;
+            //logikai
+            bool logikai = false;
+
+            //lebegőpontos számok
+            float egyszeres = 15.6634249364646463462f;
+            double ketszeres = 15.6634249364646463462;
+            decimal dec = 15.6634249364646463462m;
+```
