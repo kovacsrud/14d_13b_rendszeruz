@@ -48,12 +48,44 @@ namespace StringekKarakterek
             Console.WriteLine(karakter);
 
             //A szöveg hossza:16, az indexek 0-15 közöttiek
-            for (int i = 0; i < szoveg.Length; i++)
-            {
+            szoveg = "VaLaMI sZÖveG";
+            char[] szovegCh = szoveg.ToCharArray();
+            //Így is lehetett volna
+            //var szovegCh = szoveg.ToCharArray();
 
-                //Itt kell valamit csinálni a betűkkel
-                szoveg[0] = Char.ToUpper(szoveg[0]);
+            for (int i = 0; i < szovegCh.Length; i++)
+            {
+                if (Char.IsLower(szovegCh[i]))
+                {
+                    szovegCh[i] = char.ToUpper(szovegCh[i]);
+                } else
+                    szovegCh[i] = char.ToLower(szovegCh[i]);
+                {
+
+                }
+               
             }
+
+            var szoveg2 = new string(szovegCh);
+            Console.WriteLine(szoveg);
+            Console.WriteLine(szoveg2);
+
+            //írjunk programot ami megadja egy string-ben
+            //előforduló számjegyek összegét
+
+            var numbers = "Ebben a 49 szövegben 126 számok vannak 441".ToCharArray();
+            var osszeg = 0;
+
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                if (char.IsDigit(numbers[i]))
+                {
+                    osszeg = osszeg + (int)Char.GetNumericValue(numbers[i]);
+                }
+            }
+
+            Console.WriteLine(osszeg);
+
 
             Console.ReadKey();
         }
