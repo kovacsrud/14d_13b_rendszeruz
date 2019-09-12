@@ -76,3 +76,9 @@ var nap = datum.Substring(8, 2);
 
 Ha karakterenként kell alakítani, akkor CharArray()-é (karaktertömb) kell alakítani a stringet.
 
+Ha egy karakter számot tartalmaz, akkor ezt az értéket a 
+```C#
+Char.GetNumericValue(karaketer);
+```
+kifejezés fogja megadni. **Double** típussal tér vissza, ezért gondoskodni kell arról, hogy a megfelelő változó típust használjuk hozzá.
+

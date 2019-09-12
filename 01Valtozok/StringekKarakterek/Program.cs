@@ -80,6 +80,10 @@ namespace StringekKarakterek
             {
                 if (char.IsDigit(numbers[i]))
                 {
+                    //A GetNumericValue() double típussal tér vissza,
+                    //amit a (int)Char.GetNumericValue(numbers[i]) 
+                    //paranccsal kényszerítünk int típusra 
+                    //ez a típuskényszerítés (cast-olás)
                     osszeg = osszeg + (int)Char.GetNumericValue(numbers[i]);
                 }
             }
