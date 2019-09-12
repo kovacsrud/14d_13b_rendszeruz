@@ -41,3 +41,7 @@ A memória egy adott része, amely egy névvel van azonosítva.
             double ketszeres = 15.6634249364646463462;
             decimal dec = 15.6634249364646463462m;
 ```
+
+## String típus
+
+A string típus értéke nem változtatható meg.

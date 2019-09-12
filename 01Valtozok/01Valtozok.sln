@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01Valtozok", "01Valtozok\01Valtozok.csproj", "{DAC1DAC2-8082-497B-B750-AC33AE4CC918}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringekKarakterek", "StringekKarakterek\StringekKarakterek.csproj", "{D470B6EE-CD64-4650-9EEB-53FF3F472035}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{DAC1DAC2-8082-497B-B750-AC33AE4CC918}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DAC1DAC2-8082-497B-B750-AC33AE4CC918}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DAC1DAC2-8082-497B-B750-AC33AE4CC918}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D470B6EE-CD64-4650-9EEB-53FF3F472035}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D470B6EE-CD64-4650-9EEB-53FF3F472035}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D470B6EE-CD64-4650-9EEB-53FF3F472035}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D470B6EE-CD64-4650-9EEB-53FF3F472035}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
