@@ -57,7 +57,36 @@ namespace _0916Tombok
                 //osszeg+=szamok[i];
             }
 
+            //min,max kiválasztás
+            var min = Int32.MaxValue;
+            var max = Int32.MinValue;
+
+            for (int i = 0; i < szamok.Length; i++)
+            {
+                if (szamok[i]<min)
+                {
+                    min = szamok[i];
+                }
+                if (szamok[i]>max)
+                {
+                    max = szamok[i];
+                }
+            }
+            //
+
+            var szamDb = 0;
+
+            for (int i = 0; i < szamok.Length; i++)
+            {
+                if (szamok[i]==49)
+                {
+                    szamDb++;
+                }
+            }
+
             Console.WriteLine(osszeg);
+            Console.WriteLine($"Min:{min},Max:{max}");
+            Console.WriteLine($"55 darabszáma:{szamDb}");
             
 
             Console.ReadKey();
