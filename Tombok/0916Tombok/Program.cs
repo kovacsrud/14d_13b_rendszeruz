@@ -84,10 +84,37 @@ namespace _0916Tombok
                 }
             }
 
+            //lineáris keresés
+            var keresett = 99;
+            bool megvan = false;
+
+            for (int i = 0; i < szamok.Length; i++)
+            {
+                if (szamok[i]==keresett)
+                {
+                    Console.WriteLine($"Megvan! indexe:{i}");
+                    megvan = true;
+                    break;
+                } 
+            }
+            if (!megvan)
+            {
+                Console.WriteLine($"A keresett elem {keresett} nincs a tömbben!");
+            }
+
+
             Console.WriteLine(osszeg);
             Console.WriteLine($"Min:{min},Max:{max}");
             Console.WriteLine($"55 darabszáma:{szamDb}");
-            
+
+
+            //A vizsgán
+
+            Console.WriteLine($"Összeg:{szamok.Sum()},Min:{szamok.Min()},Max:{szamok.Max()}");
+
+            Console.WriteLine(szamok.Contains(keresett));
+
+            Console.WriteLine(szamok.Count(x=>x>0));
 
             Console.ReadKey();
             
