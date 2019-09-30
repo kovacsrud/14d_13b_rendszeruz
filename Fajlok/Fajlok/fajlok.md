@@ -114,3 +114,36 @@ catch (Exception ex)
     }
 
 ```
+
+**Összesítések készítése a ToLookup() függvénnyel**
+
+Ezzel a függvénnyel tetszőleges bonyolultságú összesítéseket lehet készíteni. Az összesítés alapja a kulcsnak megadott adatmező, ezeknek az egyenkénti előfordulását (darabszámát) lehet meghatározni könnyen.
+
+pl: az 1969-ben születettek darabszáma vezetéknév szerint csoportosítva:
+```C#
+var csoport = hatvankilenc.ToLookup(x=>x.vezeteknev).OrderBy(x=>x.Key);
+```
+**Az eredmény kiíratása**
+```C#
+ foreach (var c in csoport)
+    {
+            Console.WriteLine($"Vezetéknév:{c.Key},{c.Count()}.db");
+    }
+```
+
+**Összesítés több adat alapján**
+
+Ebben az esetben a ToLookUp()-függvénynek több kulcsot adunk meg. Több kulcs megadásához szükséges a **new \{}**!
+pl. 69-ben születettek születési hely és keresztnév szerint csoportosítva:
+```C#
+var szhely = hatvankilenc.OrderBy(x => x.szuletesiHely).ThenBy(x => x.keresztnev).ToLookup(x=>new {x.szuletesiHely,x.keresztnev });
+```
+**Az eredmény**
+```C#
+foreach (var sz in szhely)
+    {
+        Console.WriteLine($"{sz.Key.szuletesiHely},{sz.Key.keresztnev},{sz.Count()}");
+    }
+```
+Összetett kulcs esetény az adatmezők a **Key**-en belül érhetőek el!
+pl. **sz.Key.szuletesiHely**
