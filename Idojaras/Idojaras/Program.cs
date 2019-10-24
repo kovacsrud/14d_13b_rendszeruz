@@ -109,7 +109,16 @@ namespace Idojaras
             {
                 Console.WriteLine($"{a.ora}.óra");
             }
-            
+
+            //Adjuk meg a vizsgált évek átlaghőmérsékleteit!
+
+            var evekAtlagho = idojarasAdatok.ToLookup(x => x.ev).OrderBy(x=>x.Key);
+
+            foreach (var e in evekAtlagho)
+            {
+                Console.WriteLine($"{e.Key},{e.Average(x=>x.homerseklet)}");
+            }
+
 
 
 
