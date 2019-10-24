@@ -102,7 +102,13 @@ namespace Idojaras
             var leghidegebb = lekerdezettNapok.Find(x => x.homerseklet == lekerdezettNapok.Min(y => y.homerseklet));
             Console.WriteLine($"A leghidegebb óra:{leghidegebb.ora}");
 
+            //Az adott napon mely órák voltak melegebbek az átlagosnál?
+            var atlagnalmelegebb = lekerdezettNapok.FindAll(x=>x.homerseklet > lekerdezettNapok.Average(y=>y.homerseklet));
 
+            foreach (var a in atlagnalmelegebb)
+            {
+                Console.WriteLine($"{a.ora}.óra");
+            }
             
 
 
