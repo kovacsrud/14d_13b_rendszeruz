@@ -72,6 +72,13 @@ namespace Idojaras
 
             var lekerdezettNapok = idojarasAdatok.FindAll(x=>x.ev==ev && x.honap==honap && x.nap==nap);
 
+            Console.WriteLine($"Ennyi adat van:{lekerdezettNapok.Count}");
+
+            foreach (var l in lekerdezettNapok)
+            {
+                Console.WriteLine($"{l.ev},{l.honap},{l.nap},{l.ora},{l.homerseklet},{l.szelsebesseg},{l.paratartalom}");
+            }
+
 
             Console.ReadKey();
         }
