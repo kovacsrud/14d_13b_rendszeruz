@@ -84,7 +84,7 @@ namespace Idojaras
             Console.WriteLine($"A legalacsonyabb hőmérséklet:{min:0.00}");
 
             var max = lekerdezettNapok.Max(x => x.homerseklet);
-            Console.WriteLine($"A legalacsonyabb hőmérséklet:{max:0.00}");
+            Console.WriteLine($"A legmagasabb hőmérséklet:{max:0.00}");
 
             var atlagho = lekerdezettNapok.Average(x=>x.homerseklet);
             Console.WriteLine($"Az átlagos hőmérséklet:{atlagho:0.00}");
@@ -93,12 +93,17 @@ namespace Idojaras
             //Ebben az esetben előszök ki kell szűrni a megfelelő
             //adatokat, majd jöhet az átlag (min, max stb)
             var du = lekerdezettNapok.Where(x => x.ora >= 12).Average(x => x.homerseklet);
+            Console.WriteLine($"A délutáni átlagos hőmérséklet:{du:0.00}");
 
             //Melyik volt az adott napon a legmelegebb óra?
+            var legmelegebb = lekerdezettNapok.Find(x=>x.homerseklet==lekerdezettNapok.Max(y=>y.homerseklet));
+            Console.WriteLine($"A legmelegebb óra:{legmelegebb.ora}");
+
+            var leghidegebb = lekerdezettNapok.Find(x => x.homerseklet == lekerdezettNapok.Min(y => y.homerseklet));
+            Console.WriteLine($"A leghidegebb óra:{leghidegebb.ora}");
 
 
-
-            Console.WriteLine($"A délutáni átlagos hőmérséklet:{du:0.00}");
+            
 
 
 
