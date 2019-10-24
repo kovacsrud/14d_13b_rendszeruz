@@ -61,7 +61,16 @@ namespace Idojaras
                 Console.WriteLine(ex.Message);
             }
 
-            Console.WriteLine(idojarasAdatok.Count);
+            Console.WriteLine($"Adatok száma:{idojarasAdatok.Count}");
+
+            //Kérjünk be egy évet,  egy hónapot, egy napot, és listázzuk ki
+            //az adott nap adatait
+
+            var ev = Convert.ToInt32(Console.ReadLine());
+            var honap = Convert.ToInt32(Console.ReadLine());
+            var nap = Convert.ToInt32(Console.ReadLine());
+
+            var lekerdezettNapok = idojarasAdatok.FindAll(x=>x.ev==ev && x.honap==honap && x.nap==nap);
 
 
             Console.ReadKey();
