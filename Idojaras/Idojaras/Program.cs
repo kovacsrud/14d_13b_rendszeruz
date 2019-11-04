@@ -119,6 +119,18 @@ namespace Idojaras
                 Console.WriteLine($"{e.Key},{e.Average(x=>x.homerseklet)}");
             }
 
+            //Több adat alapján történő összesítéseknél összetett a Key
+            //amit a new {kulcs1,kulcs2... kifejezéssel lehet megadni}
+            //rendezésnél mindig csak 1 OrderBy van, a továbbiakat 
+            //a ThenBy-al lehet megadni. ThenBy-ból akármennyi lehet.
+            var evekhonapokAtlagho = idojarasAdatok.ToLookup(x =>new {x.ev,x.honap}).OrderBy(x => x.Key.ev).ThenBy(x=>x.Key.honap);
+
+            foreach (var e in evekhonapokAtlagho)
+            {
+                Console.WriteLine($"{e.Key.ev},{e.Key.honap},{e.Average(x=>x.homerseklet)}");
+            }
+
+
 
 
 
