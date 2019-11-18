@@ -49,6 +49,24 @@ namespace Hianyzas
 
             Console.WriteLine($"2.feladat, összes mulasztás:{hianyzasok.Sum(x=>x.mulasztottOrak)}");
 
+            Console.Write("Adjon meg egy napot:");
+            var nap = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Adjon meg egy tanuló nevét:");
+            var nev = Console.ReadLine();
+
+            var hianyzotte = hianyzasok.FindAll(x=>x.nev==nev && nap>=x.elsoNap && nap<=x.utolsoNap);
+
+            if (hianyzotte.Count>0)
+            {
+                Console.WriteLine("Hiányzott");
+            } else
+            {
+                Console.WriteLine("Nem hiányzott");
+            }
+
+
+
             Console.ReadKey();
         }
     }
