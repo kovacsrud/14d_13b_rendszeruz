@@ -34,13 +34,18 @@ namespace Hianyzas
             try
             {
                 var sorok = File.ReadAllLines(@"c:/ftproot/Hianyzasok/szeptember.csv",Encoding.Default);
+                for (int i = 1; i < sorok.Length; i++)
+                {
+                    Hianyzas hianyzas = new Hianyzas(sorok[i]);
+                    hianyzasok.Add(hianyzas);
+                }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
 
-
+            Console.WriteLine($"1.feladat:{hianyzasok.Count} db adat van.");
 
             Console.ReadKey();
         }
