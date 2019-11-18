@@ -11,11 +11,11 @@ namespace Hianyzas
     {
         struct Hianyzas
         {
-            string nev;
-            string osztaly;
-            int elsoNap;
-            int utolsoNap;
-            int mulasztottOrak;
+            public string nev;
+            public string osztaly;
+            public int elsoNap;
+            public int utolsoNap;
+            public int mulasztottOrak;
 
             public Hianyzas(string adatsor)
             {
@@ -46,6 +46,8 @@ namespace Hianyzas
             }
 
             Console.WriteLine($"1.feladat:{hianyzasok.Count} db adat van.");
+
+            Console.WriteLine($"2.feladat, összes mulasztás:{hianyzasok.Sum(x=>x.mulasztottOrak)}");
 
             Console.ReadKey();
         }
