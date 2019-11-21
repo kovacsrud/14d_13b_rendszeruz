@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,28 +38,47 @@ namespace csudh
 
         static void Main(string[] args)
         {
-            String tesztadat = "eee.ee.zu;188.189.190.1";
+            //String tesztadat = "eee.ee.zu;188.189.190.1";
 
-            Domain domain = new Domain(tesztadat);
-            Console.WriteLine(domain.domain);
-            Console.WriteLine(domain.ipaddress);
+            //Domain domain = new Domain(tesztadat);
+            //Console.WriteLine(domain.domain);
+            //Console.WriteLine(domain.ipaddress);
 
-            for (int i = 0; i < domain.domainLevels.Length; i++)
+            //for (int i = 0; i < domain.domainLevels.Length; i++)
+            //{
+            //    if (domain.domainLevels[i]==null)
+            //    {
+            //        Console.WriteLine("Nincs");
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine(domain.domainLevels[i]);
+
+            //    }
+
+            //}
+
+            ////domain level tesztelése
+            //Console.WriteLine(DomainLevel(domain,4));
+
+            //Feladat 2
+            List<Domain> domainek = new List<Domain>();
+            try
             {
-                if (domain.domainLevels[i]==null)
+                var sorok = File.ReadAllLines(@"c:/ftproot/csudh/csudh.txt");
+                for (int i = 1; i < sorok.Length; i++)
                 {
-                    Console.WriteLine("Nincs");
+                    domainek.Add(new Domain(sorok[i]));
                 }
-                else
-                {
-                    Console.WriteLine(domain.domainLevels[i]);
-                    
-                }
-                
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            //Feladat 3
+            Console.WriteLine($"{domainek.Count} db domain-ip páros van.");
 
-            //domain level tesztelése
-            Console.WriteLine(DomainLevel(domain,4));
+
 
             Console.ReadKey();
         }
