@@ -32,7 +32,14 @@ namespace csudh
         }
         public static string DomainLevel(Domain d,int level)
         {
-            return d.domainLevels[level-1] ;
+            if (d.domainLevels[level - 1]==null)
+            {
+                return "Nincs";
+            }else
+            {
+                return d.domainLevels[level - 1];
+            }
+            
         }
 
 
@@ -77,7 +84,13 @@ namespace csudh
             }
             //Feladat 3
             Console.WriteLine($"{domainek.Count} db domain-ip páros van.");
+            //Feladat 5.
+            Console.WriteLine("Feladat 5.");
 
+            for (int i = 0; i < 5; i++)
+            {
+                Console.WriteLine($"{i+1}.szint {DomainLevel(domainek[0],i+1)}");
+            }
 
 
             Console.ReadKey();
