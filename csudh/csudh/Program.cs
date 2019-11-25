@@ -91,7 +91,50 @@ namespace csudh
             {
                 Console.WriteLine($"{i+1}.szint {DomainLevel(domainek[0],i+1)}");
             }
+            string htmlOut = "<HTML><HEAD><TITLE>Csudh</TITLE></HEAD>";
+            htmlOut += "<BODY>";
+            htmlOut += "<TABLE align=center>";
+            htmlOut += "<TR>";
+            htmlOut += "<TD>Sorszám</TD>";
+            htmlOut += "<TD>Host domainneve</TD>";
+            htmlOut += "<TD>Host IP címe</TD>";
+            htmlOut += "<TD>1.szint</TD>";
+            htmlOut += "<TD>2.szint</TD>";
+            htmlOut += "<TD>3.szint</TD>";
+            htmlOut += "<TD>4.szint</TD>";
+            htmlOut += "<TD>5.szint</TD>";
+            htmlOut += "</TR>";
 
+            //ciklussal hozzáadjuk az adatokat a stringhez
+            var sorszam = 1;
+            foreach (var d in domainek)
+            {
+                htmlOut += "<TR>";
+                htmlOut += $"<TD>{sorszam++}</TD>";
+                
+                htmlOut += $"<TD>{d.domain}</TD>";
+                htmlOut += $"<TD>{d.ipaddress}</TD>";
+                for (int i = 0; i < d.domainLevels.Length; i++)
+                {
+                    htmlOut += $"<TD>{DomainLevel(d,i+1)}</TD>";
+                }
+                htmlOut += "</TR>";
+            }
+
+            htmlOut += "</TABLE>";
+            htmlOut += "</BODY>";
+            htmlOut += "</HTML>";
+
+            //Console.WriteLine(htmlOut);
+
+            try
+            {
+                File.WriteAllText(@"table.html", htmlOut);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
             Console.ReadKey();
         }
