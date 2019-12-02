@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,6 +37,23 @@ namespace Koridok
 
         static void Main(string[] args)
         {
+            List<KorAdat> koridok = new List<KorAdat>();
+
+            try
+            {
+                var sorok = File.ReadAllLines(@"c:/ftproot/koridok/autoverseny.csv",Encoding.Default);
+                for (int i = 1; i < sorok.Length; i++)
+                {
+                    koridok.Add(new KorAdat(sorok[i]));
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+            }
+
+            Console.WriteLine($"3.feladat. A fájlban {koridok.Count} sor van.");
 
             Console.ReadKey();
         }
