@@ -55,6 +55,9 @@ namespace Koridok
 
             Console.WriteLine($"3.feladat. A fájlban {koridok.Count} sor van.");
 
+            var hanymasodperc = koridok.Find(x=>x.versenyzonev.ToLower()=="Fürge Ferenc".ToLower() && x.palyanev=="Gran Prix Circuit" && x.kor==3).korido;
+
+            Console.WriteLine($"4. feladat. A köridő:{hanymasodperc}");
             Console.ReadKey();
         }
     }
