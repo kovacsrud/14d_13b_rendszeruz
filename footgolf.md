@@ -125,5 +125,25 @@ Az összpontszám számítását a következő szabályok alapján végezze:
  - Ha  a  versenyző  legrosszabb  egy  vagy  két  eredménye  nem  nulla,  akkor  a versenyzőnek  az  összpontszámába  bele  kell  számítani  azt  a  10  pont  bónuszt, amelyet ezekben a fordulókban megkapott. Például: „50;50;20;50;30;50;50;50” pontok esetén a „20” és a „30” pont kiesik, de mivel a kieső pontszámok nem nullák, ezért az indulásért járó 10-10 pont bónuszt megkapja, így összpontszáma: 6 × 50 + 10 +10 = 320. 
 
 ```C#
+public static int Osszpontszam(int[] pontok)
+{
+    var osszpont = 0;
+    Array.Sort(pontok);
 
+    for (int i = 0; i < pontok.Length-2; i++)
+       {
+           osszpont += pontok[i];
+        }
+    
+    if (pontok[pontok.Length-2]!=0)
+        {
+            osszpont += 10;
+        }
+    if (pontok[pontok.Length - 1] != 0)
+        {
+            osszpont += 10;
+        }
+
+            return osszpont;
+}
 ```
