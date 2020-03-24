@@ -72,7 +72,7 @@ Ha kész az osztály, akkor irány a főprogram! Először létre kell hozni egy
 List<Versenyzo> versenyzok = new List<Versenyzo>();
 ```
 
-Ezt követően a szokásos szerkezetben betöltjük a fájlt és feldolgozzuk az adatait, feltöltjük a listát
+Ezt követően a szokásos szerkezetben betöltjük a fájlt és feldolgozzuk az adatait, feltöltjük a listát. Jelen esetben a szöveges fájlban nincsenek oszlopnevek, ezért az első sort is feldolgozzuk.
 
 ```C#
 try
@@ -93,4 +93,13 @@ catch (Exception ex)
 A fájl feltöltéséhez a **File.ReadAllLines** metódust használjuk. Így nem kell FileStream, ill, StreamReader  osztályokat létrehozni, a **ReadAllLines** megnyit, olvas, bezár, eltakarít maga után.
 
 Ezen a ponton kész a **versenyzok** listánk, fel van töltve adatokkal, kezdődhet a feladat kérdéseinek megválaszolása.
+
+Feladat 3:
+Határozza meg és írja ki a képernyőre a minta szerint, hogy hány versenyző indult összesen a két kategóriában a bajnokságon!
+
+Egyszerű, annyi versenyző indult, ahány elem van a listán, azaz a lista elemszáma adja meg a választ.
+
+```C#
+Console.WriteLine($"3.Feladat:, Összesen induló versenyzők száma:{versenyzok.Count}");
+```
 
