@@ -211,3 +211,20 @@ try
      Console.WriteLine(ex.Message);
 }
 ```
+
+
+
+```C#
+var egyesuletiVersenyzok = versenyzok.FindAll(x => x.egyesulet != "n.a.");
+            
+var statisztika = egyesuletiVersenyzok.ToLookup(x => x.egyesulet);
+
+foreach (var i in statisztika)
+{
+    if (i.Count()>2)
+    {
+        Console.WriteLine($"{i.Key},{i.Count()}");
+    }
+                
+}
+```
