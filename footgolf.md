@@ -103,3 +103,12 @@ Egyszerű, annyi versenyző indult, ahány elem van a listán, azaz a lista elem
 Console.WriteLine($"3.Feladat:, Összesen induló versenyzők száma:{versenyzok.Count}");
 ```
 
+Feladat 4:
+Határozza meg és írja ki a képernyőre a minta szerint a női versenyzők arányát az összes versenyzőszámhoz  képest!  A  százalékos  értéket  két  tizedesjegy  pontossággal  jelenítse meg!
+
+Itt már érdemes a LINQ segítségét igénybe venni, hiszen időt és munkát lehet így megtakarítani. 
+Először meg kell határozni a női versenyzők számát. A FindAll kigyűjti a megfelelő elemeket egy új listába, és annak még az elemszámát vesszük.
+
+```C#
+var noiVersenyzokSzama = versenyzok.FindAll(x => x.kategoria.ToLower() == "noi".ToLower()).Count;
+```
