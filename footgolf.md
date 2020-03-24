@@ -212,7 +212,12 @@ try
 }
 ```
 
+Feladat 8:
+Készítsen statisztikát a minta szerint, hogy az egyes egyesületekből hány versenyző indult a bajnokságon! Az egyesületen kívül indult versenyzőknél az egyesületnél az „n.a.” adat szerepel.  Ezek  a  versenyzők  és  az  egy  vagy  két  versenyzőt  indító  egyesületek  ne szerepeljenek a statisztikában! 
 
+Először kiszűrjük a megfelelő adatokat.
+Ezt követően a **.ToLookup()** használatával készíthetünk statisztikát. A ToLookup-nál a kulcs (Key) az egyesület. 
+Utána csak ki kell íratni. Csak azok kerülnek képernyőre, amelyek 2 nél többször szerepelnek.
 
 ```C#
 var egyesuletiVersenyzok = versenyzok.FindAll(x => x.egyesulet != "n.a.");
