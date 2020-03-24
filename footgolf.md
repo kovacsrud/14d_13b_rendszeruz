@@ -89,3 +89,8 @@ catch (Exception ex)
     Console.WriteLine(ex.Message);
 }
 ```
+
+A fájl feltöltéséhez a **File.ReadAllLines** metódust használjuk. Így nem kell FileStream, ill, StreamReader  osztályokat létrehozni, a **ReadAllLines** megnyit, olvas, bezár, eltakarít maga után.
+
+Ezen a ponton kész a **versenyzok** listánk, fel van töltve adatokkal, kezdődhet a feladat kérdéseinek megválaszolása.
+
