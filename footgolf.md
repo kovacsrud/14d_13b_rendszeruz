@@ -153,6 +153,7 @@ public static int Osszpontszam(int[] pontok)
 Feladat 6:
 Határozza meg és  írja ki a  minta szerint  a 2016-os footgolf  bajnokság legtöbb  pontot szerzett női bajnokát! Feltételezheti, hogy legalább egy női induló volt a bajnokságon, és nem alakult ki holtverseny.
 
+Figyelem, a főprogramban folytatjuk!
 A feladatot lefordítva: keressük a legtöbb pontot szerzett női játékost. Megint tud segíteni a LINQ. Mivel itt egyetlen előfordulást keresünk, a Find-ot használjuk (milyen mellékhatása lehet, ha a Find nem talál semmit?)
 
 ```C#
