@@ -23,7 +23,11 @@ namespace FootGolf
         
         static void Main(string[] args)
         {
-     
+            //lista létrehozása az adatoknak
+            //fájl betöltés
+            //adatok visszakeresése
+            //fájl kiírás
+            //statisztika
 
 
             Console.ReadKey();
@@ -61,3 +65,27 @@ Szükség lesz egy adatszerkezetre, amely a versenyző adatait kezeli. Erre a c�
 ```
 Az osztályunk feladata, hogy a beérkező adatokat feldolgozza és tárolja. A bejövő adat a fájlból beolvasott sor, amit a határoló karakter mentén feldarabolunk, majd az adatmezőkbe teszünk. Különlegesség más feladatokhoz képest, hogy itt van 8 adat, amelyek a versenyző által elért pontokat jelentik, ezeket egy tömbbe tesszük. Az osztály konstruktora gondoskodik az adatok feldolgozásáról.
 A **nev,kategoria,egyesulet** adatok egyszerű stringek, a **pontok** értékei kerülnek a tömbbe. Ezt **for** ciklussal érdemes. Felmerülhet a kérdés, hogy lehet-e egyenként is? Lehet, de plusz munka, plusz hibalehetőség, és mi van, ha 2639 adat van? Szóval jobb a **for**.
+
+Ha kész az osztály, akkor irány a főprogram! Először létre kell hozni egy listát az adatok tárolására. A lista elemtípusa a **Versenyzo**, tehát a lista ezen osztály példányait fogja tárolni.
+
+```C#
+List<Versenyzo> versenyzok = new List<Versenyzo>();
+```
+
+Ezt követően a szokásos szerkezetben betöltjük a fájlt és feldolgozzuk az adatait, feltöltjük a listát
+
+```C#
+try
+{
+    var sorok = File.ReadAllLines(@"fob2016.txt",Encoding.Default);
+
+         for (int i = 0; i < sorok.Length; i++)
+         {
+             versenyzok.Add(new Versenyzo(sorok[i]));
+         }
+}
+catch (Exception ex)
+{
+    Console.WriteLine(ex.Message);
+}
+```
