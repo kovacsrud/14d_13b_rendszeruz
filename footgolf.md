@@ -17,8 +17,10 @@ namespace FootGolf
 {
     class Program
     {        
-        
+        //ide kerül a Versenyzo osztály
 
+        //ide kerül  a pontszámot meghatározó függvény
+        
         static void Main(string[] args)
         {
      
@@ -26,11 +28,13 @@ namespace FootGolf
 
             Console.ReadKey();
         }
+        
+        //ide is kerülhet az osztály
     }
 }
 
 ```
-Szükség lesz egy adatszerkezetre, amely a versenyző adatait kezeli. Erre a célra használhatunk struktúrát, vagy osztály. A korábbi megoldásokban túlnyomórészt a struktúrák szerepeltek, ezért most osztályt használunk. Ezt a legtöbb esetben külön fájlba illik tenni, de most a főprogramot is tartalmazó fájlba tesszük (inner class-nak is szokták hívni).
+Szükség lesz egy adatszerkezetre, amely a versenyző adatait kezeli. Erre a célra használhatunk struktúrát, vagy osztály. A korábbi megoldásokban túlnyomórészt a struktúrák szerepeltek, ezért most osztályt használunk. Ezt a legtöbb esetben külön fájlba illik tenni, de most a főprogramot is tartalmazó fájlba tesszük (inner class-nak is szokták hívni). A felső kódrészletben megjelöltem, hogy hová kerüljön az osztály. Mehetne a főprogram alá is, a lényeg, hogy a főprogramon **kívül** legyen. 
 
 ```C#
  public class Versenyzo
@@ -55,3 +59,5 @@ Szükség lesz egy adatszerkezetre, amely a versenyző adatait kezeli. Erre a c�
             }           
         }
 ```
+Az osztályunk feladata, hogy a beérkező adatokat feldolgozza és tárolja. A bejövő adat a fájlból beolvasott sor, amit a határoló karakter mentén feldarabolunk, majd az adatmezőkbe teszünk. Különlegesség más feladatokhoz képest, hogy itt van 8 adat, amelyek a versenyző által elért pontokat jelentik, ezeket egy tömbbe tesszük. Az osztály konstruktora gondoskodik az adatok feldolgozásáról.
+A **nev,kategoria,egyesulet** adatok egyszerű stringek, a **pontok** értékei kerülnek a tömbbe. Ezt **for** ciklussal érdemes. Felmerülhet a kérdés, hogy lehet-e egyenként is? Lehet, de plusz munka, plusz hibalehetőség, és mi van, ha 2639 adat van? Szóval jobb a **for**.
