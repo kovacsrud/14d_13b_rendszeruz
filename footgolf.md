@@ -162,3 +162,28 @@ var noiBajnok = versenyzok.Find(x => x.kategoria.ToLower() == "noi".ToLower() &&
 Console.WriteLine($"6. feladat: A bajnok női versenyző:{noiBajnok.nev},{Osszpontszam(noiBajnok.pontok)}");
 ```
 
+Feladat 7.
+Készítsen  szöveges  állományt osszpontFF.txt  néven,  amelybe  kiírja  a  felnőtt  férfi kategóriában indult versenyzők nevét és a bajnokságban elért összpontszámát! A sorokban az adatokat pontosvesszővel válassza el egymástól a minta szerint! 
+
+Szűrünk, majd a kiszűrt adatokat fájlba írjuk. Itt a legjobb a **FileStream, StreamWriter** osztályokat használni.
+
+```C#
+try
+{
+    FileStream fajl = new FileStream(@"osszpontFF.txt", FileMode.Create);
+    StreamWriter writer = new StreamWriter(fajl, Encoding.Default);
+    var ferfiVersenyzok = versenyzok.FindAll(x => x.kategoria.ToLower() == "Felnott ferfi".ToLower());
+
+            foreach (var i in ferfiVersenyzok)
+            {
+                writer.WriteLine($"{i.nev};{Osszpontszam(i.pontok)}");
+            }
+    
+    writer.Close();
+
+}
+catch (Exception ex)
+{
+    Console.WriteLine(ex.Message);
+}
+```
