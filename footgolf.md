@@ -165,7 +165,8 @@ Console.WriteLine($"6. feladat: A bajnok női versenyző:{noiBajnok.nev},{Osszpo
 Feladat 7.
 Készítsen  szöveges  állományt osszpontFF.txt  néven,  amelybe  kiírja  a  felnőtt  férfi kategóriában indult versenyzők nevét és a bajnokságban elért összpontszámát! A sorokban az adatokat pontosvesszővel válassza el egymástól a minta szerint! 
 
-Szűrünk, majd a kiszűrt adatokat fájlba írjuk. Itt a legjobb a **FileStream, StreamWriter** osztályokat használni.
+Szűrünk, majd a kiszűrt adatokat fájlba írjuk. Itt a legjobb a **FileStream, StreamWriter** osztályokat használni. 
+Nagyon fontos, hogy ha kimarad a fájl lezárása (**Close()**), akkor egy sérült fájl lesz az eredmény!!
 
 ```C#
 try
@@ -185,5 +186,28 @@ try
 catch (Exception ex)
 {
     Console.WriteLine(ex.Message);
+}
+```
+Egy jobb megoldás, ha a StreamWriter-t **using** blokkban használjuk, ebben az esetben nem kell a kézzel elvégzett lezárás, a **using** blokk gondoskodik a lezárásról.
+
+```C#
+try
+{
+    FileStream fajl = new FileStream(@"osszpontFF.txt", FileMode.Create);
+    using (StreamWriter writer = new StreamWriter(fajl, Encoding.Default)) { 
+        
+          var ferfiVersenyzok = versenyzok.FindAll(x => x.kategoria.ToLower() == "Felnott ferfi".ToLower());
+
+          foreach (var i in ferfiVersenyzok)
+            {
+                writer.WriteLine($"{i.nev};{Osszpontszam(i.pontok)}");
+            }
+     }
+
+     }
+       catch (Exception ex)
+     {
+
+     Console.WriteLine(ex.Message);
 }
 ```
