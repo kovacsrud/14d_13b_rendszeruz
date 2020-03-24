@@ -112,3 +112,9 @@ Először meg kell határozni a női versenyzők számát. A FindAll kigyűjti a
 ```C#
 var noiVersenyzokSzama = versenyzok.FindAll(x => x.kategoria.ToLower() == "noi".ToLower()).Count;
 ```
+Ezt követően tudjuk meghatározni az arányt. Ezt már be lehet csomagolni a kiíró utasításba. Az eredményt Double típusra kell castolni, és két tizedessel százalékos formában megjeleníteni, ezért a **:0.00%**.
+
+```C#
+Console.WriteLine($"4.feladat:{(Double)noiVersenyzokSzama / versenyzok.Count:0.00%}");
+```
+
