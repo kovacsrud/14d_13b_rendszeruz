@@ -117,4 +117,13 @@ Ezt követően tudjuk meghatározni az arányt. Ezt már be lehet csomagolni a k
 ```C#
 Console.WriteLine($"4.feladat:{(Double)noiVersenyzokSzama / versenyzok.Count:0.00%}");
 ```
+Feladat 5:
+Készítsen függvényt vagy jellemzőt, amivel meghatározza egy versenyzőnek a bajnokságban (8 fordulóban) elért egyéni összpontszámát!
+Az összpontszám számítását a következő szabályok alapján végezze: 
 
+ - A versenyző legrosszabb két eredménye kiesik az összpontszámból. A maradék hat pontszámot össze kell adni. 
+ - Ha  a  versenyző  legrosszabb  egy  vagy  két  eredménye  nem  nulla,  akkor  a versenyzőnek  az  összpontszámába  bele  kell  számítani  azt  a  10  pont  bónuszt, amelyet ezekben a fordulókban megkapott. Például: „50;50;20;50;30;50;50;50” pontok esetén a „20” és a „30” pont kiesik, de mivel a kieső pontszámok nem nullák, ezért az indulásért járó 10-10 pont bónuszt megkapja, így összpontszáma: 6 × 50 + 10 +10 = 320. 
+
+```C#
+
+```
